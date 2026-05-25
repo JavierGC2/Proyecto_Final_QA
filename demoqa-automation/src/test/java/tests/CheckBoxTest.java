@@ -18,7 +18,6 @@ public class CheckBoxTest extends BaseTest {
     // TC-010
     @Test(description = "TC-010: Seleccion de checkbox padre Home")
     public void testSeleccionCheckBoxPadre() {
-        checkBoxPage.expandAll();
         checkBoxPage.selectHomeCheckBox();
         Assert.assertTrue(checkBoxPage.isResultDisplayed(),
             "Deberia mostrarse el resultado al seleccionar el checkbox padre");

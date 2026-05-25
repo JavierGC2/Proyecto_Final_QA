@@ -58,7 +58,8 @@ public class PracticeFormPage {
     }
 
     public boolean isFirstNameInvalid() {
-        String classes = driver.findElement(firstNameField).getAttribute("class");
-        return classes != null && classes.contains("field-error");
+        return !(boolean) js.executeScript(
+                "return document.getElementById('firstName').validity.valid;"
+        );
     }
 }

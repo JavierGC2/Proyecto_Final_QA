@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
@@ -37,7 +39,15 @@ public class TextBoxPage {
     }
 
     public void submitForm() {
-        driver.findElement(submitButton).click();
+        // Esperar que el boton sea clickable y usar JS click como fallback
+        WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+        // Asegurarse que esté visible en pantalla
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", btn);
+        try {
+            btn.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+        }
     }
 
     public String getOutputName() {

@@ -13,7 +13,7 @@ public class CheckBoxPage {
     private WebDriverWait wait;
 
     private By expandAllBtn = By.cssSelector("button.rct-option-expand-all, button[title='Expand all'], button[aria-label='Expand all']");
-    private By homeCheckBox = By.cssSelector("label[for='tree-node-home']");
+    private By homeCheckBox = By.cssSelector("span.rc-tree-checkbox[aria-label*='Home']");
     private By resultText = By.id("result");
 
     public CheckBoxPage(WebDriver driver) {

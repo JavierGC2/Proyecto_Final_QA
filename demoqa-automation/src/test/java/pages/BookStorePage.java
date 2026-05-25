@@ -12,7 +12,7 @@ public class BookStorePage {
     private WebDriverWait wait;
 
     private By searchBox   = By.id("searchBox");
-    private By bookRows    = By.cssSelector(".rt-tr-group .rt-td:nth-child(2) span");
+    private By bookRows  = By.cssSelector("span[id^='see-book-'] a");
 
     public BookStorePage(WebDriver driver) {
         this.driver = driver;
