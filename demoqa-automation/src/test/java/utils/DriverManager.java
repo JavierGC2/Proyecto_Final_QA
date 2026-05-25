@@ -15,6 +15,7 @@ public class DriverManager {
             options.addArguments("--start-maximized");
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
         }
         return driver;
     }
